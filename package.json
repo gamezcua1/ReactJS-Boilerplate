@@ -1,0 +1,83 @@
+{
+  "name": "bookify_client",
+  "version": "1.0.0",
+  "main": "src/App.js",
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "axios": "^0.19.2",
+    "components": "^0.1.0",
+    "css.gg": "^2.0.0",
+    "emotion-theming": "^10.0.27",
+    "i18next": "^19.4.5",
+    "jsonwebtoken": "^8.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hook-form": "^5.7.2",
+    "react-i18next": "^9.0.10",
+    "react-router-dom": "^5.2.0",
+    "react-spring": "^8.0.27"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^8.0.1",
+    "@types/jest": "^24.0.9",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.2.0",
+    "cross-env": "^5.2.1",
+    "css-loader": "^3.6.0",
+    "cypress": "^4.8.0",
+    "eslint": "^5.12.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^24.1.0",
+    "jest-transform-css": "^2.0.0",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2"
+  },
+  "scripts": {
+    "clear-build-cache": "rm -rf .cache/ dist/",
+    "dev": "parcel src/index.html",
+    "start": "npm run dev",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:update": "jest -u",
+    "cypress": "cypress open",
+    "test:integration": "cypress run",
+    "build": "parcel build src/index.html --out-dir build && echo '/* /index.html 200' | cat >build/_redirects"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Firefox versions",
+    "last 2 FirefoxAndroid versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 Edge versions",
+    "last 2 Opera versions",
+    "last 2 OperaMobile versions"
+  ],
+  "jest": {
+    "testPathIgnorePatterns": [
+      "cypress"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+.cache/
+dist/
+.env
+.DS_Store
+coverage/
+.vscode/
+cypress/videos/
+cypress/screenshots/
+public

@@ -1,0 +1,43 @@
+image: node:latest
+
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+    - cache/Cypress
+    - node_modules
+
+before_script:
+  - apt-get update -qq && apt-get install
+  - npm install
+
+stages:
+  - code
+  - test
+
+audit:
+  stage: code
+  script:
+    - npm audit
+
+eslint:
+  stage: code
+  script:
+    - npm run lint
+
+test:e2e:
+  stage: test
+  image: cypress/browsers:chrome69
+  script:
+    - npm run build
+    - npm run e2e:ci
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - cypress/screenshots
+    - cypress/videos
